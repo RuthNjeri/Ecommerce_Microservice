@@ -25,10 +25,10 @@ public class OrdersController : ControllerBase
 		return NotFound();
 	}
 	
-	[HttpGet("{id}")]
-	public async Task<IActionResult> GetOrderAsync(int id)
+	[HttpGet("{customerId}")]
+	public async Task<IActionResult> GetOrderAsync(int customerId)
 	{
-		var result = await _ordersProvider.GetOrderAsync(id);
+		var result = await _ordersProvider.GetOrderAsync(customerId);
 		if (result.IsSuccess)
 		{
 			return Ok(result.Order);

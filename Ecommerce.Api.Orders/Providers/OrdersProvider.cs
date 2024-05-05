@@ -24,9 +24,9 @@ public class OrdersProvider : IOrdersProvider
 	{
 		if (!dbContext.Orders.Any())
 		{
-			dbContext.Add(new Db.Order() { Id = 1, CustomerId = 1, TotalAmount = 100.00 } );
-			dbContext.Add(new Db.Order() { Id = 2, CustomerId = 2, TotalAmount = 100.00 } );
-			dbContext.Add(new Db.Order() { Id = 3, CustomerId = 3, TotalAmount = 100.00 } );
+			dbContext.Add(new Db.Order() { Id = 1, CustomerId = 2, TotalAmount = 100.00 } );
+			dbContext.Add(new Db.Order() { Id = 2, CustomerId = 3, TotalAmount = 100.00 } );
+			dbContext.Add(new Db.Order() { Id = 3, CustomerId = 4, TotalAmount = 100.00 } );
 
 
 			dbContext.SaveChanges();
@@ -56,11 +56,11 @@ public class OrdersProvider : IOrdersProvider
 		}
 	}
 
-	public async Task<(bool IsSuccess, Models.Order Order, string ErrorMessage)> GetOrderAsync(int id)
+	public async Task<(bool IsSuccess, Models.Order Order, string ErrorMessage)> GetOrderAsync(int customerId)
 	{
 	  	try 
 		{
-			var order = await dbContext.Orders.FirstOrDefaultAsync(p=> p.Id == id);
+			var order = await dbContext.Orders.FirstOrDefaultAsync(p=> p.CustomerId == customerId);
 			
 			if(order!= null)
 			{
