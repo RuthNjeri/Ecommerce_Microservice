@@ -24,9 +24,9 @@ public class OrdersProvider : IOrdersProvider
 	{
 		if (!dbContext.Orders.Any())
 		{
-			dbContext.Add(new Db.Order() { Id = 1, CustomerId = 2, TotalAmount = 100.00 } );
-			dbContext.Add(new Db.Order() { Id = 2, CustomerId = 3, TotalAmount = 100.00 } );
-			dbContext.Add(new Db.Order() { Id = 3, CustomerId = 4, TotalAmount = 100.00 } );
+			dbContext.Add(new Db.Order() { Id = 1, CustomerId = 2, OrderName = "Electronics" } );
+			dbContext.Add(new Db.Order() { Id = 2, CustomerId = 3, OrderName = "Hardware" } );
+			dbContext.Add(new Db.Order() { Id = 3, CustomerId = 4, OrderName = "Software" } );
 
 
 			dbContext.SaveChanges();
