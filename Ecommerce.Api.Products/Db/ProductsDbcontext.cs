@@ -2,11 +2,11 @@
 
 namespace Ecommerce.Api.Products.Db;
 
-public class ProductsDbcontext : DbContext
+public class ProductsDbContext : DbContext
 {
 	public DbSet<Product> Products { get; set; }
 	
-	public ProductsDbcontext(DbContextOptions options) : base(options)
+	public ProductsDbContext(DbContextOptions options) : base(options)
 	{
 	}
 }

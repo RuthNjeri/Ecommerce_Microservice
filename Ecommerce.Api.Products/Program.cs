@@ -1,7 +1,7 @@
+using AutoMapper;
 using Ecommerce.Api.Products;
 using Ecommerce.Api.Products.Db;
 using Ecommerce.Api.Products.Interfaces;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +13,7 @@ builder.Services.AddScoped<IProductsProvider, ProductsProvider>();
 builder.Services.AddAutoMapper(typeof(Program));
 
 
-builder.Services.AddDbContext<ProductsDbcontext>(options => options.UseInMemoryDatabase("Products"));
+builder.Services.AddDbContext<ProductsDbContext>(options => options.UseInMemoryDatabase("Products"));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
